@@ -1,5 +1,6 @@
 package de.seuhd.campuscoffee.domain.model
 
+import java.math.BigDecimal
 import java.time.LocalDateTime
 import java.util.UUID
 
@@ -19,7 +20,8 @@ data class User(
     val loginName: String,
     val emailAddress: String,
     val firstName: String,
-    val lastName: String
+    val lastName: String,
+    val balance: BigDecimal = BigDecimal("0.00")
 ) : DomainModel<UUID> {
     /** The limits that every new user must meet. */
     companion object {

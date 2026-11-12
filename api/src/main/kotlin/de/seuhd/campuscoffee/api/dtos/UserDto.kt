@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Size
+import java.math.BigDecimal
 import java.time.LocalDateTime
 import java.util.UUID
 
@@ -50,5 +51,7 @@ data class UserDto(
     val firstName: String?,
     @field:NotBlank
     @field:Size(max = User.MAX_NAME_LENGTH, message = "must have at most {max} characters")
-    val lastName: String?
+    val lastName: String?,
+    @field:Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    val balance: BigDecimal = BigDecimal.ZERO
 ) : Dto<UUID>
